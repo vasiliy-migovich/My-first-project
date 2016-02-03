@@ -4,11 +4,11 @@
 <html lang="uk">
 	<head>
 		<meta charset="UTF-8"/>
-		 <title>Сервіс Обліку Студентів - {% block meta_title %}{% endblock meta_title %}</title>
+		<title>Сервіс Обліку Студентів - {% block meta_title %}{% endblock meta_title %}</title>
 		<meta name="description" value="Система Обліку Студентів Навчального Закладу" />
 		<!-- Include Styles -->
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="{% static "css/main.css" %}">
+    	<link rel="stylesheet" href="{{ PORTAL_URL }}{% static "css/main.css" %}">
     	{% block extra_css %}{% endblock extra_css %}
 	</head>
 	<body>
@@ -37,9 +37,9 @@
 		  	<div class="row" id="sub-header">
         		<div class="col-xs-12">
             	<ul class="nav nav-tabs" role="tablist">
-              		<li role="presentation" class="active"><a href="{% url "home" %}">Студенти</a></li>
-              		<li role="presentation"><a href="/journal">Відвідування</a></li>
-              		<li role="presentation"><a href="{% url "groups" %}">Групи</a></li>
+          <li role="presentation" {% url "home" as the_url %}{% if request.path == the_url %}class="active"{% endif %}><a href="{% url "home" %}">Студенти</a></li>
+          <li role="presentation" {% if '/journal' in request.path %}class="active"{% endif %}><a href="/journal">Відвідування</a></li>
+          <li role="presentation" {% url "groups" as the_url %}{% if the_url in request.path %}class="active"{% endif %}><a href="{% url "groups" %}">Групи</a></li>
         		</ul>
         		</div>
       		</div>
