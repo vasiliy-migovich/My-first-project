@@ -2,6 +2,24 @@
 h1, h2, h3, h4, h5, h6 {
   	font-weight: bold;
 }
+h2 {
+    text-align: center;
+}
+.table {
+    margin-top: 20px;
+}
+.table tbody tr td,
+.table thead tr th {
+    vertical-align: middle
+}
+.table th, td {
+    text-align: center;
+    border: 1px solid #dddddd;
+}
+.table tr {
+    border-top: 1px solid #dddddd;
+    vertical-align: middle
+}
 .alert {
   	/* Ми додали відстань лише зверху елемента: -top */
   	margin-top: 10px;
@@ -19,6 +37,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 5px -5px 5px rgba(0, 0, 0, 0.3);
     cursor: pointer;
     font-size: 1.2em;
+    margin-bottom: 20px;
 }
 /* Groups Selector */
 #group-selector {
