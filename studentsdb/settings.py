@@ -128,3 +128,6 @@ TEMPLATE_CONTEXT_PROCESSORS = \
 ]
 
 PORTAL_URL = 'http://localhost:8000'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
