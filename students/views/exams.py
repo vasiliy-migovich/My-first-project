@@ -3,22 +3,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+#import calendar
 
+from ..models.exams import Exam
 from ..models.students import Student
 
 # Views for Students
-def students_list(request):
+def exams_list(request):
 	students = Student.objects.all()
+
+	exams = Exam.objects.all()
+	value = [2, 3, 4, 5]
 
 	# try to order students list
 	order_by = request.GET.get('order_by', '')
-	if order_by in ('last_name', 'first_name', 'ticket'):
+	if order_by in ('last_name', 'first_name'):
 		students = students.order_by(order_by)
 		if request.GET.get('reverse', '') == '1':
 			students = students.reverse()
-	
+
 	# paginate students
-	paginator = Paginator(students, 3)
+	paginator = Paginator(students, 5)
 	page = request.GET.get('page')
 	try:
 		students = paginator.page(page)
@@ -30,13 +35,5 @@ def students_list(request):
 		# last page of results.
 		students = paginator.page(paginator.num_pages)
 
-	return render(request, 'students/students_list.html', {'students': students})
-
-def students_add(request):
-    return HttpResponse('<h1>Student Add Form</h1>')
-
-def students_edit(request, sid):
-    return HttpResponse('<h1>Edit Student %s</h1>' % sid)
-
-def students_delete(request, sid):
-    return HttpResponse('<h1>Delete Student %s</h1>' % sid)
+	return render(request, 'students/exams_list.html', 
+		{'students': students, 'exams': exams, 'value': value})

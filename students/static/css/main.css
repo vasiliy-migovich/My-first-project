@@ -30,6 +30,7 @@ h2 {
   	border-top: 1px solid #dddddd;
   	/* задаємо внутрішню відстань елемента до верхнього краю */
   	padding-top: 10px;
+    margin-bottom: 50px;
 }
 .add-student {
     float:left;
