@@ -26,6 +26,12 @@ class Exam(models.Model):
         max_length=255,
         verbose_name=u"Викладач")
 
+	group_exam = models.ForeignKey('Group',
+		blank=False,
+		null=True,
+        max_length=45,
+        verbose_name=u"Вибрати групу")
+
 	def __unicode__(self):
-		return u"%s (%s %s)" % (self.title_exam, self.date_exam, self.examiner)
+		return u"%s (%s, %s, %s)" % (self.title_exam, self.date_exam, self.examiner, self.group_exam)
 
