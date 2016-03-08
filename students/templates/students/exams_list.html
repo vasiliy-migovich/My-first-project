@@ -88,69 +88,6 @@
   </tbody>
 </table>
 
-<!--
-    <table class="table table-hover table-striped" id="exams">
-    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-    <thead>
-      <tr>
-        <th>№</th>
-        <th>
-          
-            <a href="">Група
-            
-          </a></th>
-        <th>
-          <a href="{% url "exams" %}?order_by=last_name{% if request.GET.order_by == 'last_name' and request.GET.reverse != '1' %}&amp;reverse=1{% endif %}">
-            Студент
-            {% if order_by == 'last_name' and reverse != '1' %}&uarr;
-            {% elif order_by == 'last_name' and reverse == '1' %}&darr;
-            {% endif %}
-          </a>
-        </th>
-        {% for exam in exams %}
-        <th><span style="font-size:1.1em;color:#CD6600">{{ exam.title_exam }}</span><span style="font-weight:100"><br>викл. {{ exam.examiner }}<br>{{ exam.date_exam }}</span></th>
-        {% endfor %}
-      </tr>
-    </thead>
-    {% endwith %}
-    <tbody>
-      {% for student in students %}
-      <tr>
-        <td>{{ forloop.counter }}</td>
-
-        <td>{{ student.student_group.title }}</td>
-
-        <td style="text-align:left"><a href="">{{ student.last_name }} {{ student.first_name }}</a></td>
-        {% for exam in exams %}
-        <td>{{ value | random }}</td>
-        {% endfor %}
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-
-  {% if students.has_other_pages %}
-  {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-  <nav>
-    <ul class="pagination">
-      <li>
-        <a href="{% url "exams" %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a>
-      </li>
-      {% for p in students.paginator.page_range %}
-      <li {% if students.number == p %}class="active"{% endif %}>
-        <a href="{% url "exams" %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
-      </li>
-      {% endfor %}
-      <li>
-        <a href="{% url "exams" %}?page={{ students.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a>
-      </li>
-    </ul>
-  </nav>
-  {% endwith %}
-  {% endif %}
-
--->
-
   {% if exams.has_other_pages %}
   {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
   <nav>

@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = [
 ]
 
 ROOT_URLCONF = 'studentsdb.urls'
-
+"""
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,9 +70,9 @@ TEMPLATES = [
             ],
         },
     },
-]
+]"""
 
-"""TEMPLATES = [
+TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -86,7 +86,7 @@ TEMPLATES = [
             ],
         },
     },
-]"""
+]
 
 WSGI_APPLICATION = 'studentsdb.wsgi.application'
 
