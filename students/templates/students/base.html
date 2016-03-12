@@ -4,7 +4,7 @@
 <html lang="uk">
 	<head>
 		<meta charset="UTF-8"/>
-		<title>Сервіс Обліку Студентів - {% block meta_title %}{% endblock meta_title %}</title>
+		<title>Сервіс обліку студентів - {% block meta_title %}{% endblock meta_title %}</title>
 		<meta name="description" value="Система Обліку Студентів Навчального Закладу" />
 		<!-- Include Styles -->
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.0/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
 		  	<div class="row" id="header">
 		    	<!-- Logo -->
 		    	<div class="col-xs-8">
-		      		<h1>Сервіс Обліку Студентів</h1>
+		      		<h1>сервіс обліку студентів</h1>
 		    	</div>
 		    	<!-- Groups Selector -->
 		    	<div class="col-xs-4" id="group-selector">
@@ -57,11 +57,15 @@
 			<!-- Start Content Columns -->
 			<div class="row" id="content-columns">
 			    <div class="col-xs-12" id="content-column">
-			        {% comment "Not used alert so far" %}
-			        <div class="alert alert-warning" role="alert">Status Update!</div>
-			        {% endcomment %}
+
+			        {% block status_message %}
+			        {% if request.GET.status_message %}
+			        <div class="alert alert-warning" role="alert">{{ request.GET.status_message }}</div>
+			        {% endif %}
+			        {% endblock %}
 			        <h2>{% block title %}{% endblock title %}</h2>
 			        {% block content %}{% endblock content %}
+
 			    </div>
 			</div>
 			<!-- End Content Columns -->
