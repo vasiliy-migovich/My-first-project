@@ -37,8 +37,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
     'students',
 )
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,6 +152,24 @@ TEMPLATE_CONTEXT_PROCESSORS = \
 ]
 
 PORTAL_URL = 'http://localhost:8000'
+
+# YANDEX
+ADMIN_EMAIL = 'vasiliymigovich@gmail.com'
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_HOST_USER = 'erl27@yandex.ua'
+EMAIL_HOST_PASSWORD = 'lbgkjpfdh65'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
+# email settings
+# please, set here you smtp server details and your admin email
+"""ADMIN_EMAIL = 'admin@studentsdb.com'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'vasiliymigovich@gmail.com'
+EMAIL_HOST_PASSWORD = 'crhfn137wjrjk'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True"""
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '..', 'media')
